@@ -4,16 +4,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/HassanBaigDEV/test-app.git'
+                git branch: 'main',
+                    url: 'https://github.com/HassanBaigDEV/test-app.git'
             }
         }
         
         stage('Test') {
             steps {
                 script {
-                    docker.build('selenium-tests').inside {
-                        sh 'mvn test'
-                    }
+                    bat 'docker build -t selenium-tests .'
+                    bat 'docker run selenium-tests'
                 }
             }
         }
