@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/selenium-test-webapp.git'
+                git 'https://github.com/HassanBaigDEV/test-app.git'
             }
         }
         
